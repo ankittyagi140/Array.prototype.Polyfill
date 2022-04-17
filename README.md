@@ -49,3 +49,16 @@ const result = sampleArray.myReduce((acc, val) => (acc += val), 0);
 console.log(result);
 
 
+
+//Array.polyfill.filter
+const sampleArrary = [2, 5, 6, 3, 8, 9, 0, undefined, null, ,];
+Array.prototype.myFilter = function (callback,context) {
+  let tempArray = [];
+  for (let index = 0; index < this.length; index++) {
+    callback(this[index], index, this) && tempArray.push(this[index]);
+  }
+  return tempArray;
+};
+const result = sampleArrary.myFilter(el=>el)
+console.log(result)
+
